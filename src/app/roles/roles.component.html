@@ -1,0 +1,32 @@
+<h2>Roles</h2>
+<ul class="roles">
+    <li *ngFor="let role of roles">
+      <a routerLink="/detail/{{role.id}}">
+        <span class="">{{role.role}}</span>
+      </a>
+      <button type="button" class="delete" title="delete role"
+      (click)="delete(role)">x</button>
+  </li>
+     
+</ul>
+
+<div>
+  <label for="new-role">Role: </label>
+  <input id="new-role" #role />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(role.value);">
+  Add Role
+  </button>
+
+  <swal
+    #confirmDialog
+    title="Estas seguro que deseas eliminar el role?"
+    text="No hay vuelta atras"
+    icon="question"
+    [showDenyButton]="true"
+    [focusCancel]="true"
+    ></swal>
+    
+    <swal #swal1 title="Eliminado correctamente" text="Eliminado de la base de datos" icon="question"></swal>
+</div>

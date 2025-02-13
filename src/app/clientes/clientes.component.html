@@ -1,0 +1,44 @@
+<h2>Clientes</h2>
+<ul class="clientes">
+    <li *ngFor="let c of clientes">
+      <a routerLink="/clientes/detail/{{c.id}}">
+        <span class="">{{c.nombre}}</span> {{c.apellidos}}
+      </a>
+      <button type="button" class="delete" title="delete clientes"
+      (click)="delete(c)">x</button>
+         </li>
+</ul>
+
+<div>
+    <label for="nombre">Nombre: </label>
+    <input id="nombre" #nombre />
+    <label for="apellidos">Apellidos: </label>
+    <input id="apellidos" #apellidos />
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="button" class="add-button" (click)="add(nombre.value,apellidos.value);nombre.value='';apellidos.value=''">
+      Add 
+    </button>
+
+    <swal
+    #confirmDialog
+    title="Estas seguro que deseas eliminar el Cliente?"
+    text="No hay vuelta atras"
+    icon="question"
+    [showDenyButton]="true"
+    [focusCancel]="true"
+    >
+  </swal>
+    
+    <swal #swal1 title="Eliminado correctamente" text="Eliminado de la base de datos" icon="question"></swal>
+  </div>
+
+  <button
+  [swal]="{
+    title: 'Important question',
+    text: 'Can you see this?',
+    icon: 'question'
+  }"
+>
+  Show SweetAlert question
+</button>
+

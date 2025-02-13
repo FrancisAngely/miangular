@@ -1,0 +1,48 @@
+<h2>Contactos</h2>
+<ul class="contactos">
+    <li *ngFor="let c of contactos">
+      <a routerLink="/contactos/detail/{{c.id}}">
+        <span class="">{{c.nombre}}</span> {{c.email}}  {{c.asunto}}
+      </a>
+      <button type="button" class="delete" title="delete contacto"
+        (click)="delete(c)">x</button>
+    </li>
+</ul>
+
+
+<div>
+    <label for="nombre">Nombre: </label>
+    <input id="nombre" #nombre />
+    <label for="email">Email: </label>
+    <input id="email" #email />
+    <label for="asunto">Asunto: </label>
+    <input id="asunto" #asunto />
+    <label for="mensaje">Mensaje: </label>
+    <input id="mensaje" #mensaje />
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="button" class="add-button" (click)="add(nombre.value,email.value,asunto.value,mensaje.value);">
+      Add 
+    </button>
+
+    <swal
+    #confirmDialog
+    title="Are you sure?{{texto}}"
+    text="{{texto}}"
+    icon="question"
+    [showDenyButton]="true"
+    [focusCancel]="true"
+    ></swal>
+    
+    <swal #swal1 title="Hello world!" text="How's the world going?" icon="question"></swal>
+  
+    
+    
+    
+  
+  
+  
+  
+  </div>
+
+  
+

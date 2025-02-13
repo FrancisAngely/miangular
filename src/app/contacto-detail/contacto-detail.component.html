@@ -1,0 +1,14 @@
+<div  *ngIf="contacto">
+    <label for="nombre">Nombre: </label>
+    <input id="nombre" #nombre   [(ngModel)]="contacto.nombre" />
+    <label for="email">Email: </label>
+    <input id="email" #email   [(ngModel)]="contacto.email"/>
+    <label for="asunto">Asunto: </label>
+    <input id="asunto" #asunto  [(ngModel)]="contacto.asunto"/>
+    <label for="mensaje">Mensaje: </label>
+    <input id="mensaje" #mensaje  [(ngModel)]="contacto.mensaje"/>
+    <!-- (click) passes input value to add() and then clears the input -->
+    
+    <button type="button" (click)="goBack()">go back</button>
+    <button type="button" (click)="save()">save</button>
+  </div>

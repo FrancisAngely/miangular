@@ -1,0 +1,30 @@
+<div *ngIf="usuario">
+    <h2>{{usuario.email | uppercase}} Details</h2>
+    <div>id: {{usuario.id}}</div>
+    <div>
+      <label for="usuario-email">Email: </label>
+      <input id="usuario-email" [(ngModel)]="usuario.email" placeholder="email">
+    </div>
+    <div>
+        <label for="usuario-nombre">Nombre: </label>
+        <input id="usuario-nombre" [(ngModel)]="usuario.nombre" placeholder="nombre">
+      </div>
+      <div>
+        <label for="usuario-apellido">Apellidos: </label>
+        <input id="usuario-apellido" [(ngModel)]="usuario.apellido" placeholder="apellido">
+      </div>
+      
+      <div>
+        <label for="usuario-password">password: </label>
+        <input id="usuario-password" [(ngModel)]="usuario.password" placeholder="password">
+      </div>
+      <div>
+        <label for="usuario-id_roles">id_roles: </label>
+        <input id="usuario-id_roles" [(ngModel)]="usuario.id_roles" placeholder="id_roles">
+      </div>
+      <div>
+        <label for="usuario-id_comercios">id_comercios: </label>
+        <input id="usuario-id_comercios" [(ngModel)]="usuario.id_comercios" placeholder="id_comercios">
+      </div>
+
+  </div>

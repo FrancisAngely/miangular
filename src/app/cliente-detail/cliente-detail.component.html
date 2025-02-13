@@ -1,0 +1,13 @@
+
+<div *ngIf="cliente">
+    <label for="nombre">Nombre: </label>
+    <input id="nombre" #nombre [(ngModel)]="cliente.nombre" />
+    <label for="apellidos">Apellidos: </label>
+    <input id="apellidos" #apellidos [(ngModel)]="cliente.apellidos" />
+    <!-- (click) passes input value to add() and then clears the input -->
+     <!-- (click)="add(nombre.value,apellidos.value);nombre.value='';apellidos.value=''"-->
+     <button type="button" (click)="goBack()">go back</button>
+     <button type="button" (click)="save()">save</button>
+    
+  </div>
+

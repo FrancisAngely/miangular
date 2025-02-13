@@ -1,0 +1,20 @@
+<h2>Localidades</h2>
+<!--<ul class="localidades">
+    <li *ngFor="let localidad of localidades">
+      <a routerLink="/detail/{{localidad.id}}">
+        <span class="badge">{{localidad.id}}</span> {{localidad.localidad}}
+      </a>
+     
+    </li>
+</ul>-->
+
+<table datatable [dtOptions]="dtOptions" class="row-border hover"></table>
+<swal
+  #confirmDialog
+  title="Are you sure?"
+  text="This cannot be undone"
+  icon="question"
+  [showDenyButton]="true"
+  [focusCancel]="true"
+></swal>
+<swal #swal1 title="Eliminado correctamente" text="Eliminado de la base de datos" icon="success"></swal>

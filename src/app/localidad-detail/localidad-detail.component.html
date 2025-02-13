@@ -1,0 +1,25 @@
+<div *ngIf="localidad">
+
+    <h2>{{localidad.localidad | uppercase}} Details</h2>
+    <div><span>id: </span>{{localidad.id}}</div>
+    <div>
+      <label for="localidad-localidad">Localidad: </label>
+      <input id="localidad-localidad" [(ngModel)]="localidad.localidad" placeholder="localidad">
+    </div>
+
+    <div>
+        <label for="localidad-id_provincias">Provincia: </label>
+        <input id="localidad-id_provincias" [(ngModel)]="localidad.id_provincias" placeholder="id_provincias">
+      </div>
+
+      <div>
+        <label for="localidad-cp">Cp: </label>
+        <input id="localidad-cp" [(ngModel)]="localidad.cp" placeholder="cp">
+      </div>
+
+      <div>
+        <label for="localidad-activo">activo: </label>
+        <input id="localidad-activo" [(ngModel)]="localidad.activo" placeholder="activo">
+      </div>
+  
+  </div>
