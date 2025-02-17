@@ -6,7 +6,12 @@ import { MessageService } from '../message.service';
 import { Config } from 'datatables.net';
 import { DataTablesResponse } from '../datatables-response';
 import { HttpClient } from '@angular/common/http';
-import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
+import { SweetAlert2Module,SwalComponent,SwalPortalTargets } from '@sweetalert2/ngx-sweetalert2';
+import { Renderer2 } from '@angular/core';  
+import { ActivatedRoute, Router } from '@angular/router';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { faCoffee, faStar as faStarSolid,faDownload,faTrash,faPenToSquare  } from '@fortawesome/free-solid-svg-icons';
+import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-localidades',
@@ -18,7 +23,26 @@ import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 export class LocalidadesComponent {
   selectedLocalidad?: Localidad;
   localidades: Localidad[] = [];
-  constructor(private localidadService: LocalidadService, private messageService: MessageService) { }
+  faTrash=faTrash;
+  faPenToSquare=faPenToSquare;
+
+  icono = `<fa-icon class="ng-fa-icon" size="xs">
+  <svg 
+    aria-hidden="true" data-prefix="`+this.faTrash.prefix+`" data-icon="`+this.faTrash.iconName+`"
+    class="svg-inline--fa fa-`+this.faTrash.iconName+`" role="img"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 `+this.faTrash.icon[0]+` `+this.faTrash.icon[1]+`">
+    <path fill="currentColor" d="`+this.faTrash.icon[4]+`"></path></svg></fa-icon>
+  `;
+  iconoEdit = `<fa-icon class="ng-fa-icon" size="xs">
+  <svg 
+    aria-hidden="true" data-prefix="`+this.faPenToSquare.prefix+`" data-icon="`+this.faPenToSquare.iconName+`"
+    class="svg-inline--fa fa-`+this.faPenToSquare.iconName+`" role="img"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 `+this.faPenToSquare.icon[0]+` `+this.faPenToSquare.icon[1]+`">
+    <path fill="currentColor" d="`+this.faPenToSquare.icon[4]+`"></path></svg></fa-icon>
+  `;
+  constructor(private localidadService: LocalidadService, private messageService: MessageService, private http: HttpClient, private renderer: Renderer2, private router: Router) { }
 
   getLocalidades(): void {
     this.localidadService.getLocalidades()
